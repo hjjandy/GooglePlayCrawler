@@ -1,0 +1,8 @@
+bin
+*.db
+*.class
+*~
+crawler.conf
+keywords.txt
+LOG.log
+
