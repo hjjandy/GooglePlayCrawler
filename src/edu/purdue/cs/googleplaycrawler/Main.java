@@ -417,6 +417,10 @@ public class Main {
 				SearchResponse sr = service.search(keyword, offset,
 						numberOfResult);
 				int n = 0;
+				if (sr.getDocCount() == 0) {
+					logger.warn("No result for {} at offset {}.", keyword, offset);
+					break;
+				}
 				for (DocV2 child : sr.getDoc(0).getChildList()) {
 					AppDetails appDetails = child.getDetails().getAppDetails();
 					packages.add(appDetails.getPackageName());
